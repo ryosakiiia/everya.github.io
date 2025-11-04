@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Inauguración - EVERYA MARKET</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: linear-gradient(135deg, #6d1b6d 0%, #4a1a5c 50%, #2d0a47 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /* Tarjeta principal */
+        .invitation-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(168, 85, 247, 0.2);
+            overflow: hidden;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_ilcyxxilcyxxilcy-7tOZAQhcwhny2XM0Mmd9eKeYTmc75b.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 32px;
+        }
+
+        @media (max-width: 640px) {
+            .card-content {
+                padding: 32px 24px;
+            }
+
+            .invitation-card {
+                border-radius: 20px;
+            }
+        }
+
+        /* Imágenes decorativas en grid - AUMENTADAS Y SIN REPETIR */
+        .decorative-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .decorative-images {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .deco-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border: 2px solid white;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .deco-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .deco-img:hover {
+            transform: scale(1.1) rotate(-2deg);
+            filter: brightness(1.1);
+        }
+
+        /* Logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .logo-container img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @media (min-width: 640px) {
+            .logo-container img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Títulos */
+        .subtitle {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: rgba(88, 28, 135, 0.7);
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #581c87;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .title {
+                font-size: 36px;
+            }
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6d28d9;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        /* Sección de textos inspiradores */
+        .inspiration-section {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border-left: 4px solid #a855f7;
+        }
+
+        .super-text {
+            font-size: 13px;
+            color: #4c1d95;
+            line-height: 1.7;
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .super-text {
+                font-size: 14px;
+            }
+        }
+
+        .market-text {
+            font-size: 12px;
+            color: #5e1ba9;
+            line-height: 1.6;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .market-text {
+                font-size: 13px;
+            }
+        }
+
+        /* Información de evento */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: rgba(88, 28, 135, 0.6);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: bold;
+            color: #581c87;
+        }
+
+        @media (min-width: 640px) {
+            .info-value {
+                font-size: 16px;
+            }
+        }
+
+        /* Ubicación */
+        .location-text {
+            font-size: 12px;
+            color: #5b21b6;
+            text-align: center;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .location-text {
+                font-size: 13px;
+            }
+        }
+
+        /* Cierre */
+        .closing-text {
+            font-size: 12px;
+            color: #6d40c6;
+            text-align: center;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .closing-text {
+                font-size: 13px;
+            }
+        }
+
+        /* Botón */
+        .btn-confirm {
+            width: 100%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #581c87;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+            text-transform: capitalize;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .btn-confirm {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+        }
+
+        .btn-confirm:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.4);
+            background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+        }
+
+        .btn-confirm:active {
+            transform: scale(0.95);
+        }
+
+        /* Hashtags */
+        .hashtags {
+            font-size: 11px;
+            color: #7c3aed;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        @media (min-width: 640px) {
+            .hashtags {
+                font-size: 12px;
+            }
+        }
+
+        /* Divisores */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(109, 40, 217, 0.2), transparent);
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="invitation-card">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <!-- Todas las imágenes sin repetir en grid responsive -->
+                    <div class="decorative-images">
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-plkUKAgMS0VWCJkYHAElPSxjLsYGeQ.png" alt="Stickers Anime">
+                        </div>
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga-WToGb8oo3uk9GP3SWYNaAptdQLZa41.gif" alt="Chica Feliz">
+                        </div>
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-n57Q6dDyYJpdTj4INtroI7Il4hu1gn.png" alt="Snacks Asiáticos">
+                        </div>
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wpi1VXpXAUwx6UOeYfyDrPzGXnAOU9.png" alt="Productos Snacks">
+                        </div>
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/naruto-eating-ramen-with-rock-lee-yajqepa11yz5dp97-JMWWuwkl4Ti9jLvvi3phRxSDY6ev0p.gif" alt="Naruto Ramen">
+                        </div>
+                        <div class="deco-img">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bQt5U0da2R9woWEBHYpHIAjtj87tqG.png" alt="Chica Kimono">
+                        </div>
+                    </div>
+
+                    <!-- Logo EVERYA MARKET -->
+                    <div class="logo-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Zh5BUjOvn96KTLsOFWQsuSjeAMgRZb.png" alt="EVERYA MARKET">
+                    </div>
+
+                    <!-- Títulos principales -->
+                    <p class="subtitle">Te invitamos a celebrar</p>
+                    <h1 class="title">Gran Inauguración</h1>
+                    <h2 class="brand-name">EVERYA MARKET</h2>
+
+                    <!-- Sección de inspiración con texto largo -->
+                    <div class="inspiration-section">
+                        <p class="super-text">¿Es un ave? ¿Es un avión? ¡No! Es… Súper EVERY, viajé desde el corazón de Asia para salvarte de los mismos sabores de siempre. ¡Prepárate para una misión deliciosa!</p>
+                        <div class="divider"></div>
+                        <p class="market-text">En EVERYA Market encontrarás sopas instantáneas que podrás preparar tú mismo, snacks únicos, exóticos y llenos de sabor. ¡Despídete de lo insípido y únete a la revolución del sabor con Súper Every!</p>
+                    </div>
+
+                    <!-- Información del evento -->
+                    <div class="info-section">
+                        <div class="info-item">
+                            <p class="info-label">📅 Fecha</p>
+                            <p class="info-value">4 de Noviembre</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">🕐 Hora</p>
+                            <p class="info-value">A partir del mediodía</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">📍 Ubicación</p>
+                            <p class="info-value">Av. Abancay con Av. Huayna Cápac</p>
+                            <p class="location-text">Frente a la IEP SEDES SAPIENTIAE</p>
+                        </div>
+                    </div>
+
+                    <!-- Botón de confirmación -->
+                    <button class="btn-confirm">Confirmar Asistencia</button>
+
+                    <!-- Cierre -->
+                    <p class="closing-text">Ven y vive esta nueva experiencia con nosotros, ¡te esperamos con los brazos abiertos! 💜</p>
+
+                    <!-- Hashtags -->
+                    <p class="hashtags">#EveryaMarket #Apertura #SnacksAsiáticos #NuevaExperiencia</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
